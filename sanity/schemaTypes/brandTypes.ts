@@ -1,9 +1,9 @@
 import { TagIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
-export const categoryType = defineType({
-  name: "category",
-  title: "Category",
+export const brandType = defineType({
+  name: "brand",
+  title: "Brand",
   type: "document",
   icon: TagIcon,
   fields: [
@@ -23,18 +23,8 @@ export const categoryType = defineType({
       type: "text",
     }),
     defineField({
-      name: "range",
-      type: "number",
-      description: "Starting from",
-    }),
-    defineField({
-      name: "featured",
-      type: "boolean",
-      initialValue: false,
-    }),
-    defineField({
       name: "image",
-      title: "Category Image",
+      title: "Brand Image",
       type: "image",
       options: {
         hotspot: true,
