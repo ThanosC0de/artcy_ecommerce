@@ -11,7 +11,7 @@ const Header = () => {
     <header className="sticky top-0 py-5 bg-tech_dark text-tech_white/80">
       <Container className="flex items-center justify-between gap-5">
         <div>
-          <Logo />
+          <Logo className=""/>
           {/* <p>MobileMenu</p> */}
         </div>
         <div className="flex items-center gap-5 lg:flex-1">

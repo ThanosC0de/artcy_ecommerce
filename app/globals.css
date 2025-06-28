@@ -140,9 +140,15 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .hoverEffect {
+    @apply duration-300 ease-in-out transition-all cursor-pointer;
+  }
+  button {
+    @apply hover:cursor-pointer ease-in-out transition-all cursor-pointer;
   }
 }
