@@ -1,9 +1,16 @@
 "use client"
-import React from "react";
+import React, { use } from "react";
 import { Input } from "../ui/input";
 
 const Searchbar = () => {
     const [search, setSearch] = React.useState("");
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [showResults, setShowResults] = useState(false);
+    const [featuredProducts, setFeaturedProducts] = useState([]);
+    const searchRef = useRef<HTMLInputElement>(null);
+    const [showSearch, setShowSearch] = useState(false);
+    const mobileInputRef = useRef<HTMLInputElement>(null);
   return (
     <div className="relative lg:w-full">
       <form onSubmit={(e) => e.preventDefault()} className="releative hidden lg:flex item-ceneter">
