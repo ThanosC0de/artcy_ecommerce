@@ -4,5 +4,10 @@ import type { StructureResolver } from "sanity/structure";
 export const structure: StructureResolver = (S) =>
   S.list()
     .title("Artcy Admin")
-    .items(S.documentTypeListItems())
-      
+    .items([
+      S.documentTypeListItem("product").title("Products"),
+      S.divider(),
+      ...S.documentTypeListItems().filter(
+        (item) => item.getId() && !["product"].includes(item.getId()!)
+      )
+    ]);
