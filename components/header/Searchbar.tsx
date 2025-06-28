@@ -12,8 +12,23 @@ const Searchbar = () => {
   const searchRef = useRef<HTMLInputElement>(null);
   const [showSearch, setShowSearch] = useState(false);
   const mobileInputRef = useRef<HTMLInputElement>(null);
+
+  const toggleMobileSearch = () => {
+    setShowSearch(!showSearch);
+    if(!showSearch) {
+      //Reset Search when opening
+      setSearch("");
+      //show results immediately when opening
+      setShowResults(true);
+    }
+  };
   return (
     <div className="relative lg:w-full">
+      {/* Mobile Search */}
+      <button onClick={toggleMobileSearch} className="lg:hidden mt-1.5">
+        {!showSearch ? <X className="w-5 h-5 hover:text-tech_orange hoverEffect"/> : 
+        <Search className="w-5 h-5 hover:text-tech_orange hoverEffect" />}
+      </button>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="releative hidden lg:flex item-ceneter"
@@ -25,7 +40,7 @@ const Searchbar = () => {
           placeholder::tracking-wide pr-16"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          onFocus={() => setSearch("")}
+          onFocus={() => setShowResults(true)}
         />
         {search ? (
           <X
