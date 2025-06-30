@@ -4,12 +4,12 @@ import { getCategories } from "@/sanity/queries";
 
 export default async function Home() {
   const categories = await getCategories()
-  console.log(categories);
+ 
 
   return (
     <div className="bg-tech_bg_color pt-5 pb-10">
       <Banner />
-      <HomeCategories/>
+      <HomeCategories categories={categories}/>
       {/* Porducts */}
       {/* ShopByBarand */} 
       {/* LatestBlogs */}
