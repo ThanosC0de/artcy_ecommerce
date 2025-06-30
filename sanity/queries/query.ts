@@ -1,5 +1,7 @@
 import { defineQuery } from "next-sanity";
 
-const BANNER_QUERY = defineQuery(`*[_type == "banner"] | order(publiceAt desc)`);
+const BANNER_QUERY = defineQuery(
+    `*[_type == "banner"] | order(publishedAt desc)`
+);
 
-export default BANNER_QUERY;
+export { BANNER_QUERY };

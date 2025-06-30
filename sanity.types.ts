@@ -430,7 +430,7 @@ export type AllSanitySchemaTypes = BlockContent | Blogcategory | Blog | Author |
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries/query.ts
 // Variable: BANNER_QUERY
-// Query: *[_type == "banner"] | order(publiceAt desc)
+// Query: *[_type == "banner"] | order(publishedAt desc)
 export type BANNER_QUERYResult = Array<{
   _id: string;
   _type: "banner";
@@ -460,6 +460,6 @@ export type BANNER_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"banner\"] | order(publiceAt desc)": BANNER_QUERYResult;
+    "*[_type == \"banner\"] | order(publishedAt desc)": BANNER_QUERYResult;
   }
 }
