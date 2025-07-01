@@ -13,11 +13,11 @@ const PriceView = ({ price, discount, className }: Props) => {
       {price && discount && (
         <PriceFormatter
           amount={price + (discount * price) / 100}
-          className="line-through  font-normal text-tech_dark/70"
+          className="line-through font-normal text-tech_dark/70"
         />
       )}
     </div>
   );
 };
 
-export default PriceView;
+export default PriceView; 
