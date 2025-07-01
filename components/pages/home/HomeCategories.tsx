@@ -63,10 +63,13 @@ const HomeCategories = ({ categories }: Props) => {
       </div>
       <div className="mt-5 grid grid-cols-4 md:gird-cols-8 gap-2.5">
         {categories?.map((category) => (
-          <div key={category._id} className="bg-white p-5 flex flex-col items-center gap-3 rounded-lg border border-transparent hover:border-tech_orange hoverEffect">
+          <div
+            key={category._id}
+            className="bg-white p-5 flex flex-col items-center gap-3 rounded-lg 
+            border border-transparent hover:border-tech_orange hoverEffect relative" >
             {category?.image && (
               <div className="w-10 h-10 md:w-12 md:h-12 overflow-hidden">
-                <Link href={`/category/${category?.slug?.current}`}>
+                
                   <Image
                     src={urlFor(category?.image).url()}
                     alt="CategoryImage"
@@ -74,12 +77,13 @@ const HomeCategories = ({ categories }: Props) => {
                     height={500}
                     className="w-full h-full"
                   />
-                </Link>
+                
               </div>
             )}
             <p className="text-sm md:text-sm font-semibold text-center line-clamp-1">
               {category?.title}
             </p>
+            <Link href={`/category/${category?.slug?.current}`} className="absolute inset-1"/>
           </div>
         ))}
       </div>

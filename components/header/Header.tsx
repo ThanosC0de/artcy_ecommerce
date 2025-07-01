@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header
       className="sticky top-0 py-5 bg-tech_dark
-     text-tech_white/80">
+     text-tech_white/80 z-50">
       <Container className="flex items-center justify-between gap-5">
         <div className="flex items-center item-center justify-start
          gap-2.5 lg:gap-0">
