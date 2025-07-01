@@ -2,6 +2,8 @@ import { Product } from "@/sanity.types";
 import { image } from "@/sanity/image";
 import Link from "next/link";
 import React from "react";
+import Title from "./Title";
+import PriceView from "./PriceView";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -14,7 +16,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               alt="productImage"
               loading="lazy"
               className={`w-full h-70 object-contain rounde overflow-hidden 
-                ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-60"}hoverEffect`}
+                ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-60"}`}
             />
           </Link>
         )}
@@ -32,10 +34,25 @@ const ProductCard = ({ product }: { product: Product }) => {
           </p>
         )}
       </div>
-      <div>
+      <div className="p-3 flex flex-col gap-2">
         {product?.categories && (
-          <p>{product?.categories.map((cat) => cat).join(",")}</p>
+          <p
+            className="uppercase line-clamp-1 text-xs 
+            font-medium text-tech_dark/50"
+          >
+            {product?.categories.map((cat) => cat).join(",")}
+          </p>
         )}
+        <Title className="text-base line-clamp-2 h-12">{product?.name}</Title>
+        <div className="flex items-center gap-2.5">
+          <p className={`${product?.stock! === 0 && "text-tech_dark_red"}`}>
+            {product.stock !== 0 ? "In Stock" : "Out of Stock"}
+          </p>
+          <p className="font-semibold text-tech_light_green">
+            {(product?.stock as number) > 0 && product?.stock}{" "}
+          </p>
+        </div>
+        <PriceView price={product?.price} discount={product?.discount} className="text-sm"/>
       </div>
     </div>
   );
