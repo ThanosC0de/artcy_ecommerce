@@ -1,5 +1,5 @@
 import { sanityFetch } from "../lib/live";
-import { BANNER_QUERY } from "./query";
+import { BANNER_QUERY, FEATURED_PRODUCTS } from "./query";
 
 const getBanner = async () => {
   try {
@@ -17,23 +17,29 @@ const getCategories = async (quantity?: number) => {
         ...,
         "productCount": count(*[_type == "product" && references(^._id)])
       }`
-      
-      :` *[_type == 'category'] | order(name asc) {
+      : ` *[_type == 'category'] | order(name asc) {
         ...,
         "productCount": count(*[_type == "product" && references(^._id)])
       }`;
-      
 
     const { data } = await sanityFetch({
       query,
       params: quantity ? { quantity } : {},
     });
     return data ?? [];
-
   } catch (error) {
-    console.error("Error fetching categories Data", error);
+    console.error("Error fetching Categories Data", error);
     return [];
   }
 };
 
-export { getBanner, getCategories };
+const getFeaturedProducts = async () => {
+  try {
+    const { data } = await sanityFetch({ query: FEATURED_PRODUCTS });
+    return data ?? [];
+  } catch (error) {
+    console.error("Error fetching Featured Product Data", error);
+  }
+};
+
+export { getBanner, getCategories, getFeaturedProducts };
