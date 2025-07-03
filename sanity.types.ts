@@ -87,10 +87,9 @@ export type Blog = {
     _type: "reference";
     _weak?: boolean;
     _key: string;
-    [internalGroqTypeReferenceTo]?: "blogcategory";
     title?: string;
-  
-
+    [internalGroqTypeReferenceTo]?: "blogcategory";
+    
   }>;
   publishedAt?: string;
   isLatest?: boolean;

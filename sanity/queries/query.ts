@@ -13,7 +13,7 @@ const LATEST_BLOG_QUERY = defineQuery(
   `*[_type == "blog" && isLatest == true] | order(name  asc)
   {
     ...,
-    blogcategory[]->{
+    blogcategories[]->{
       title
     }
 }`
