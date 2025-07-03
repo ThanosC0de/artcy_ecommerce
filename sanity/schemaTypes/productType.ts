@@ -58,12 +58,12 @@ export const productType = defineType({
       type: "number",
       validation: (Rule) => Rule.min(0),
     }),
-    defineField({
-      name: "brand",
-      title: "Brand",
-      type: "reference",
-      to: { type: "brand" },
-    }),
+    // defineField({
+    //   name: "brand",
+    //   title: "Brand",
+    //   type: "reference",
+    //   to: { type: "brand" },
+    // }),
 
     defineField({
       name: "status",

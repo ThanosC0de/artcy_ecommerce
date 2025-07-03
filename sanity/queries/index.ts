@@ -1,5 +1,5 @@
 import { sanityFetch } from "../lib/live";
-import { BANNER_QUERY, FEATURED_PRODUCTS } from "./query";
+import { BANNER_QUERY, FEATURED_PRODUCTS, LATEST_BLOG_QUERY } from "./query";
 
 const getBanner = async () => {
   try {
@@ -42,4 +42,13 @@ const getFeaturedProducts = async () => {
   }
 };
 
-export { getBanner, getCategories, getFeaturedProducts };
+const getLatestBlog = async () => {
+  try {
+    const { data } = await sanityFetch({ query: LATEST_BLOG_QUERY });
+    return data ?? [];
+  } catch (error) {
+    console.error("Error fetching Latest Blog Data", error);
+  }
+};
+
+export { getBanner, getCategories, getFeaturedProducts, getLatestBlog};

@@ -5,6 +5,7 @@ import React from "react";
 import Title from "./Title";
 import PriceView from "./PriceView";
 import AddToCartButton from "./AddToCartButton";
+import Image from "next/image";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -12,9 +13,11 @@ const ProductCard = ({ product }: { product: Product }) => {
       <div className="relative overflow-hidden">
         {product?.images && (
           <Link href={`/product/${product?.slug?.current}`}>
-            <img
+            <Image
               src={image(product?.images[0]).size(900, 900).url()}
               alt="productImage"
+              width={500}
+              height={500}
               loading="lazy"
               className={`w-full h-70 object-contain rounde overflow-hidden 
                 ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-60"}`}
@@ -58,7 +61,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           discount={product?.discount}
           className="text-sm"
         />
-        <AddToCartButton product={product} calssName="w-36 rounded-full"/>
+        <AddToCartButton product={product} className="w-36 rounded-full"/>
       </div>
     </div>
   );

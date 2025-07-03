@@ -12,9 +12,7 @@ const AddToCartButton = ({ product, className }: Props) => {
     <button
       className={cn(
         "w-full py-2 px-4 bg-tech_orange text-tech_white rounded flex items-center justify-center hover:bg-tech_orange/90 hoverEffect",
-        className
-      )}
-    >
+        className)}>
       <ShoppingCart size={16} className="mr-2" /> Add to Cart
     </button>
   );

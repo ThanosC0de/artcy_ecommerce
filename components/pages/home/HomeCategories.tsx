@@ -9,7 +9,7 @@ import Link from "next/link";
 import React from "react";
 
 interface Props {
-  cateories: Category[];
+  categories: Category[];
 }
 
 const data = [
@@ -34,7 +34,7 @@ const data = [
     icon: <Settings className="w-5 h-5 md:w-6 md:h-6" />,
   },
 ];
-const HomeCategories = ({ categories }: Props) => {
+const HomeCategories = ({categories}: Props) => {
   return (
     <Container className="mt-10 lg:mt-20">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12">
