@@ -9,7 +9,6 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-
 interface Props {
   className?: string;
   iconClassName?: string;
@@ -20,7 +19,7 @@ const socialLink = [
   {
     title: "Facebook",
     href: "https://www.facebook.com",
-    icon: <Facebook className="w-5 h-5" />,
+    icon: <Facebook className="w-5 h-5 " />,
   },
   {
     title: "Instagram",
@@ -56,8 +55,7 @@ const socialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
               </Link>
             </TooltipTrigger>
             <TooltipContent
-              className={cn("bg-tach_white font-semibold", tooltipClassName)}
-            >
+              className={cn("bg-tach_white text-tech_dark font-semibold", tooltipClassName)}>
               {item.title}
             </TooltipContent>
           </Tooltip>

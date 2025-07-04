@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import SocialMedia from "./SocialMedia";
 import { categoriesData, quickLinksData } from "@/constants/data";
 import Link from "next/link";
+import { Input } from "../ui/input";
 
 const Footer = () => {
   return (
@@ -22,7 +23,7 @@ const Footer = () => {
               className="text-tech_dark_color/60"
               iconClassName="border-tach_dark_color/60 hover:text-tech_orange 
               hover:text-tech_orange"
-              tooltipClassName="bg-tach_dark_color text-white"
+              tooltipClassName="bg-tach_dark_color text-tech_orange"
             />
           </div>
 
@@ -67,7 +68,7 @@ const Footer = () => {
               offers.
             </p>
             <form className="space-y-3">
-              <input
+              <Input
                 type="email"
                 placeholder="Enter your email"
                 required
@@ -78,9 +79,18 @@ const Footer = () => {
                 type="submit"
                 className="w-full bg-gray-900
                text-white py-2 rounded-md hover:bg-gray-800 transition-colors "
-              >Subcribe</button>
+              >
+                Subcribe
+              </button>
             </form>
           </div>
+        </div>
+        <div className="py-6 border-t text-center text-sm text-tech_light_color">
+          <Link href="">
+            @ {new Date().getFullYear()}{" "}
+            <span className="text-tech_dark font-black tracking-wider uppercase
+            hover:text-tech_orange hoverEffect group-font-sans">Artcy </span>All rights reserved.
+          </Link>
         </div>
       </Container>
     </footer>
